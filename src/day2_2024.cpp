@@ -1,13 +1,16 @@
 #include "main.h"
+#define BAD -200
+#define LINE_LENGTH 255
+#define MAX_LEVELS 8
 
 bool is_line_safe_p1(int *levels, int level_count) {
-    int level_diffs[7] = {-20, -20, -20, -20, -20, -20, -20};
+    int level_diffs[MAX_LEVELS - 1] = {BAD, BAD, BAD, BAD, BAD, BAD, BAD};
     for(int j = 0; j < level_count - 1; j++) {
         if(levels[j + 1] == 0) { continue; }
         level_diffs[j] = levels[j + 1] - levels[j];
     }
 
-    int prev_diff = -20;
+    int prev_diff = BAD;
     bool safe_string = true;
     for(int j = 0; j < level_count - 1; j++) {
         int diff = level_diffs[j];
@@ -16,7 +19,7 @@ bool is_line_safe_p1(int *levels, int level_count) {
             safe_string = false;
         }
 
-        if((prev_diff != -20) && ((diff < 0 && prev_diff > 0) || (diff > 0 && prev_diff < 0))) {
+        if((prev_diff != BAD) && ((diff < 0 && prev_diff > 0) || (diff > 0 && prev_diff < 0))) {
             safe_string = false;
         }
 
@@ -27,7 +30,7 @@ bool is_line_safe_p1(int *levels, int level_count) {
 
 bool is_line_safe_p2(int *levels, int level_count) {
     if(!is_line_safe_p1(levels, level_count)) {
-        int permutation[8] = {};
+        int permutation[MAX_LEVELS] = {};
         for(int current_p = 0; current_p < level_count; current_p++) {
             int j = 0;
             for(int i = 0; i < level_count; i++) {
@@ -48,7 +51,7 @@ bool is_line_safe_p2(int *levels, int level_count) {
 void day2_2024(void) {
     int safe_reports = 0;
     int safe_reports_p2 = 0;
-    char line[255];
+    char line[LINE_LENGTH];
 
     FILE *f = fopen("assets/day2_2024.txt", "rb");
     if(f == NULL) {
@@ -56,13 +59,13 @@ void day2_2024(void) {
         exit(EXIT_FAILURE);
     }
 
-    while(fgets(line, 255, f)) {
+    while(fgets(line, LINE_LENGTH, f)) {
         line[strcspn(line, "\n")] = 0;
         line[strcspn(line, "\r")] = 0;
 
         char *token = strtok(line, " ");
         int i = 0;
-        int levels[8] = {};
+        int levels[MAX_LEVELS] = {};
         int lc = 0;
         
         levels[i++] = atoi(token);
