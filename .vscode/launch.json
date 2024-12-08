@@ -1,0 +1,16 @@
+{
+  "configurations": [
+    {
+      "name": "(Windows) Launch",
+      "type": "cppvsdbg",
+      "request": "launch",
+      "program": "${workspaceRoot}/build/aoc2024.exe",
+      "cwd": "${workspaceRoot}",
+      "args": [],
+      "stopAtEntry": false,
+      "environment": [],
+      "preLaunchTask": "C/C++: clang.exe build active file",
+    }
+  ],
+  "version": "2.0.0"
+}
