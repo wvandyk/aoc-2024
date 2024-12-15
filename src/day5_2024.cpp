@@ -17,6 +17,28 @@ void zero_array(int *array, int count) {
     }
 }
 
+int present_in_rule_right(int num, Rule *rules, Rule *found_rules) {
+    int j = 0;
+
+    for(int i = 0; i < RULE_COUNT; i++) {
+        if(num == rules[i].right) {
+            found_rules[j++] = rules[i];
+        }
+    }
+    return j;
+}
+
+int present_in_rule_left(int num, Rule *rules, Rule *found_rules) {
+    int j = 0;
+
+    for(int i = 0; i < RULE_COUNT; i++) {
+        if(num == rules[i].left) {
+            found_rules[j++] = rules[i];
+        }
+    }
+    return j;
+}
+
 int parse_update_line(char *line, int *l) {
     zero_array(l, UPDATE_LENGTH);
     int offset = 0;
@@ -60,6 +82,7 @@ bool check_line_p1(int *update_line, int elements, Rule *rules) {
 
 void day5_2024(void) {
     int day5_p1_total = 0;
+    int day5_p2_total = 0;
     Rule rules[RULE_COUNT] = {};
     int update_line[UPDATE_LENGTH] = {};
 
@@ -84,6 +107,23 @@ void day5_2024(void) {
             if(result) {
                 int mid_idx = (int)((length / 2.0) + 0.5) - 1;
                 day5_p1_total += update_line[mid_idx];
+            } else {
+                // fix the update by rearanging it
+                bool result2 = false;
+                while(result2 == false) {
+                    for(int x = 0; x < length - 1; x++) {
+                        Rule left_rules[RULE_COUNT] = {};
+                        Rule right_rules[RULE_COUNT] = {};
+                        int left_found_count = present_in_rule_left(update_line[x], rules, left_rules);
+                        int right_found_count = present_in_rule_right(update_line[x+1], left_rules, right_rules);
+                        if((left_found_count == 0) || (right_found_count == 0)) {
+                            swap(&update_line[x], &update_line[x + 1]);
+                        }
+                    }
+                    result2 = check_line_p1(update_line, length, rules);
+                }
+                int mid_idx = (int)((length / 2.0) + 0.5) - 1;
+                day5_p2_total += update_line[mid_idx];
             }
         }
         line = strtok(NULL, "\r\n");
@@ -91,5 +131,5 @@ void day5_2024(void) {
     free(buffer);
 
     printf("AOC 2024 - Day 5, part 1: middle number total: %d\n", day5_p1_total);
-    //printf("AOC 2024 - Day 5, part 2: X-MAS occurences: %d\n", day5_p2_total);
+    printf("AOC 2024 - Day 5, part 2: middle number total: %d\n", day5_p2_total);
 }
