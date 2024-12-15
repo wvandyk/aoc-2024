@@ -115,7 +115,7 @@ void day5_2024(void) {
                         Rule left_rules[RULE_COUNT] = {};
                         Rule right_rules[RULE_COUNT] = {};
                         int left_found_count = present_in_rule_left(update_line[x], rules, left_rules);
-                        int right_found_count = present_in_rule_right(update_line[x+1], left_rules, right_rules);
+                        int right_found_count = present_in_rule_right(update_line[x + 1], left_rules, right_rules);
                         if((left_found_count == 0) || (right_found_count == 0)) {
                             swap(&update_line[x], &update_line[x + 1]);
                         }
