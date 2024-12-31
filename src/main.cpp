@@ -4,6 +4,7 @@
 #include "day3_2024.cpp"
 #include "day4_2024.cpp"
 #include "day5_2024.cpp"
+#include "day3_2015.cpp"
 
 int main(int32_t argc, char *argv[]) {
     day1_2024();
@@ -11,5 +12,6 @@ int main(int32_t argc, char *argv[]) {
     day3_2024();
     day4_2024();
     day5_2024();
+    day3_2015();
     return 0;
 }
