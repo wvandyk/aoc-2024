@@ -32,6 +32,6 @@ void day1_2024(void) {
         list_diff_p2 += needle * count;
     }
 
-    printf("AOC 2024 - Day 1, part 1: list differences: %d\n", list_diff);
-    printf("AOC 2024 - Day 1, part 2: list differences: %d\n", list_diff_p2);
+    printf("AOC 2024 - Day 1, part 1: answer: %d\n", list_diff);
+    printf("AOC 2024 - Day 1, part 2: answer: %d\n", list_diff_p2);
 }

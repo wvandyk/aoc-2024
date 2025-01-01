@@ -30,6 +30,6 @@ void day3_2024(void) {
     }
     free(buffer);
 
-    printf("AOC 2024 - Day 3, part 1: sum of multiplications: %d\n", day3_p1_total);
-    printf("AOC 2024 - Day 3, part 2: sum of multiplications: %d\n", day3_p2_total);
+    printf("AOC 2024 - Day 3, part 1: answer: %d\n", day3_p1_total);
+    printf("AOC 2024 - Day 3, part 2: answer: %d\n", day3_p2_total);
 }

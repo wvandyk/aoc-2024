@@ -51,7 +51,7 @@ int parse_update_line(char *line, int *l) {
         }
     }
     return 0;
-};
+}
 
 bool check_line_p1(int *update_line, int elements, Rule *rules) {
     for(int i = 0; i < elements; i++) {
@@ -130,6 +130,6 @@ void day5_2024(void) {
     }
     free(buffer);
 
-    printf("AOC 2024 - Day 5, part 1: middle number total: %d\n", day5_p1_total);
-    printf("AOC 2024 - Day 5, part 2: middle number total: %d\n", day5_p2_total);
+    printf("AOC 2024 - Day 5, part 1: answer: %d\n", day5_p1_total);
+    printf("AOC 2024 - Day 5, part 2: answer: %d\n", day5_p2_total);
 }

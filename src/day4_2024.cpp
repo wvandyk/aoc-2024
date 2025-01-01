@@ -142,6 +142,6 @@ void day4_2024(void) {
     day4_p1_total = find_xmasses(grid);
     day4_p2_total = find_crossed_masses(grid);
 
-    printf("AOC 2024 - Day 4, part 1: XMAS occurences: %d\n", day4_p1_total);
-    printf("AOC 2024 - Day 4, part 2: X-MAS occurences: %d\n", day4_p2_total);
+    printf("AOC 2024 - Day 4, part 1: answer: %d\n", day4_p1_total);
+    printf("AOC 2024 - Day 4, part 2: answer: %d\n", day4_p2_total);
 }

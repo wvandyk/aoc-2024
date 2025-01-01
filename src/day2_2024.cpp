@@ -89,6 +89,6 @@ void day2_2024(void) {
     }
 
     fclose(f);
-    printf("AOC 2024 - Day 2, part 1: safe reports: %d\n", safe_reports);
-    printf("AOC 2024 - Day 2, part 2: safe reports: %d\n", safe_reports_p2);
+    printf("AOC 2024 - Day 2, part 1: answer: %d\n", safe_reports);
+    printf("AOC 2024 - Day 2, part 2: answer: %d\n", safe_reports_p2);
 }
