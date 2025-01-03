@@ -16,6 +16,7 @@ call C:\"Program Files"\"Microsoft Visual Studio"\2022\Community\VC\Auxiliary\Bu
 @REM OUTDIR=build
 
 echo Compiling main.cpp...
+call .\clean.bat
 clang src\main.cpp -o build\aoc2024.exe -std=c++20 -g -O0 -Wall -Wno-writable-strings -Wno-deprecated-declarations --target=x86_64-pc-windows-msvc -l User32.lib -l Gdi32.lib
 echo Done!
 echo/

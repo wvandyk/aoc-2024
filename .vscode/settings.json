@@ -2,6 +2,7 @@
   "C_Cpp.errorSquiggles": "disabled",
   "files.associations": {
     "regex": "cpp",
-    "atomic": "cpp"
+    "atomic": "cpp",
+    "utility": "cpp"
   }
 }

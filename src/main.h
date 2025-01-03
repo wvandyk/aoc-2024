@@ -10,6 +10,8 @@
 /* library functions */
 #include "lib/quick_sort.cpp"
 #include "lib/get_file_content.cpp"
+#include "lib/hashmap.cpp"
+#include "lib/hashtable.cpp"
 
 /* macros */
 #define arr_len(array) (sizeof(array) / sizeof(array[0]))
